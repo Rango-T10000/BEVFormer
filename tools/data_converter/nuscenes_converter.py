@@ -26,7 +26,7 @@ nus_attributes = ('cycle.with_rider', 'cycle.without_rider',
                   'pedestrian.sitting_lying_down', 'vehicle.moving',
                   'vehicle.parked', 'vehicle.stopped', 'None')
 
-
+#------------------从raw data中生成相关信息，存成.pkl文件------------------
 def create_nuscenes_infos(root_path,
                           out_path,
                           can_bus_root_path,
@@ -34,7 +34,7 @@ def create_nuscenes_infos(root_path,
                           version='v1.0-trainval',
                           max_sweeps=10):
     """Create info file of nuscene dataset.
-
+    
     Given the raw data, generate its related info file in pkl format.
 
     Args:

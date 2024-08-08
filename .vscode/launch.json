@@ -1,0 +1,50 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            //这个是原本的调试配置
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+            
+        },
+        {
+            //这个是Bevformer: test.py的调试配置
+            "name": "Bevformer Debugger: test.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "justMyCode": false,
+            "env": {"PYTHONPATH": "/home2/wzc/python_project/Uniad_related/BEVFormer"},
+            "args": [
+                "/home2/wzc/python_project/Uniad_related/BEVFormer/projects/configs/bevformer/bevformer_tiny.py",
+                "/home2/wzc/python_project/Uniad_related/BEVFormer/work_dirs/bevformer_tiny/bevformer_tiny_epoch_24.pth",
+                "--launcher",
+                "none",
+                "--eval",
+                "bbox"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            //这个是Bevformer: tarin.py的调试配置
+            "name": "Bevformer Debugger: train.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "env": {"PYTHONPATH": "/home2/wzc/python_project/Uniad_related/BEVFormer"},
+            "args": [
+                "./projects/configs/bevformer/bevformer_tiny.py",
+                "--launcher",
+                "pytorch",
+                "--deterministic",
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}

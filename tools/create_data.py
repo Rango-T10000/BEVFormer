@@ -69,6 +69,7 @@ def nuscenes_data_prep(root_path,
         out_dir (str): Output directory of the groundtruth database info.
         max_sweeps (int): Number of input consecutive frames. Default: 10
     """
+    #-------------------使用nuscenes_converter.py中的各种函数来生成关于数据集的.pkl/json文件------------------
     nuscenes_converter.create_nuscenes_infos(
         root_path, out_dir, can_bus_root_path, info_prefix, version=version, max_sweeps=max_sweeps)
 
@@ -78,10 +79,12 @@ def nuscenes_data_prep(root_path,
         nuscenes_converter.export_2d_annotation(
             root_path, info_test_path, version=version)
     else:
+        #--------------生成两个.pkl文件，属于train,和val的--------------
         info_train_path = osp.join(
             out_dir, f'{info_prefix}_infos_temporal_train.pkl')
         info_val_path = osp.join(
             out_dir, f'{info_prefix}_infos_temporal_val.pkl')
+        #--------------生成两个.json文件，属于train,和val的--------------
         nuscenes_converter.export_2d_annotation(
             root_path, info_train_path, version=version)
         nuscenes_converter.export_2d_annotation(
